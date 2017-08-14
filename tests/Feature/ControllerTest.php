@@ -10,10 +10,10 @@ class ControllerTest extends TestCase
 {
     public function testAll()
     {
-        $expected = ['PhpVersion' => phpversion()];
+        $expected = ['PhpVersion', 'DiskUsage'];
 
         $this->get('/dashkit/')
             ->assertSuccessful()
-            ->assertJson($expected);
+            ->assertJsonStructure($expected);
     }
 }

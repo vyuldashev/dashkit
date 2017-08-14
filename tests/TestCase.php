@@ -25,6 +25,7 @@ abstract class TestCase extends OrchestraTestCase
         $app['config']->set('dashkit', [
             'kits' => [
                 \Dashkit\Kits\PhpVersion::class,
+                \Dashkit\Kits\DiskUsage::class,
             ],
             'allowed_ips' => [
                 '127.0.0.1',
