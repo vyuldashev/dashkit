@@ -14,10 +14,22 @@
     "illuminate/support": "^5.4",
     "symfony/process": "^3.3"
   },
+  "require-dev": {
+    "orchestra/testbench": "^3.4",
+    "phpunit/phpunit": "^6.3"
+  },
   "autoload": {
     "psr-4": {
       "Dashkit\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Dashkit\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
   },
   "extra": {
     "branch-alias": {
