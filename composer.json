@@ -1,0 +1,32 @@
+{
+  "name": "dashkit/dashkit",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vladimir Yuldashev",
+      "email": "misterio92@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "illuminate/http": "^5.4",
+    "illuminate/support": "^5.4",
+    "symfony/process": "^3.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dashkit\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
