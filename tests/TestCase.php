@@ -27,8 +27,13 @@ abstract class TestCase extends OrchestraTestCase
                 \Dashkit\Kits\PhpVersion::class,
                 \Dashkit\Kits\DiskUsage::class,
             ],
-            'allowed_ips' => [
-                '127.0.0.1',
+            'authentication' => [
+                'method' => \Dashkit\Authentication\IpAuthentication::class,
+                'options' => [
+                    'allowed_ips' => [
+                        '127.0.0.1',
+                    ],
+                ],
             ],
         ]);
     }

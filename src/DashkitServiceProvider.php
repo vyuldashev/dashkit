@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Dashkit;
 
+use Dashkit\Contracts\Authentication;
 use Illuminate\Support\ServiceProvider;
 
 class DashkitServiceProvider extends ServiceProvider
@@ -19,9 +20,16 @@ class DashkitServiceProvider extends ServiceProvider
 
     public function register(): void
     {
+        $this->app->bind(Authentication::class, function () {
+            $config = config('dashkit.authentication');
+
+            return new $config['method']($config['options']);
+        });
+
         $this->app->bind(Manager::class, function () {
             return new Manager(
-                config('dashkit.kits', [])
+                config('dashkit.kits', []),
+                $this->app[Authentication::class]
             );
         });
     }

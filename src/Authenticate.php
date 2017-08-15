@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class Authenticate
 {
+    private $manager;
+
+    public function __construct(Manager $manager)
+    {
+        $this->manager = $manager;
+    }
+
     /**
      * @param Request $request
      * @param Closure $next
@@ -16,7 +23,7 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if (!in_array($request->ip(), config('dashkit.allowed_ips', []), true)) {
+        if (!$this->manager->getAuthentication()->authorize($request)) {
             abort(404);
         }
 
